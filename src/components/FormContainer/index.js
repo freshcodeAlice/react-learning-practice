@@ -2,6 +2,7 @@ import React from 'react';
 import './FormContainer.css';
 import SignUpForm from './SignUpForm';
 import LogInForm from './LogInForm';
+import 'animate.css';
 
 
 class FormContainer extends React.Component {
@@ -37,10 +38,10 @@ class FormContainer extends React.Component {
 
     render() {
         const {view} = this.state;
-        const renderForm = view ? <SignUpForm sendData={this.getDataFromForm}/> : <LogInForm  sendData={this.getDataFromForm}/>;
+        const renderForm = view ? <SignUpForm sendData={this.getDataFromForm} /> : <LogInForm  sendData={this.getDataFromForm}/>;
         return (
             <div className='overlay'>
-                <section className='form-container'>
+                <section className='form-container animate__animated animate__fadeIn'>
                 <div className='control-buttons'>
                     <button className={view ? 'button-on' : 'button-off'} onClick={this.toggleView} name="signup">Sign Up</button>
                     <button className={view ? 'button-off' : 'button-on'} onClick={this.toggleView} name="login">Log In</button>
