@@ -37,7 +37,7 @@ body {
 .form-container .header {
     font-weight: 400;
     text-align: center;
-
+    margin: 10px 0;
 }
 
 .input-container {
@@ -46,14 +46,43 @@ body {
     justify-content: space-between;
 }
 
-.form-container input {
+.form-container .form-input {
     border: none;
     height: 20px;
     background-color: transparent;
     border: 1px solid white
 }
 
-.form-container button {
+.control-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.control-buttons button {
+    flex-grow: 1;
+    height: 40px;
+    border: none;
+    color: inherit;
+    font-size: 1em;
+    font-weight: lighter;
+    transition: background-color 300ms ease-in-out;
+}
+
+.button-on {
+    background-color: #1ab188;
+}
+
+.button-on:hover, .button-off:hover {
+    cursor: pointer;
+    background-color: #229e7d;
+}
+
+.button-off {
+    background-color: rgba(160, 179, 176, 0.25)
+}
+
+.submit-button {
     height: 50px;
     border: none;
     background-color: #1ab188;

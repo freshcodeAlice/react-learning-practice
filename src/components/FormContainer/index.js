@@ -11,7 +11,11 @@ class FormContainer extends React.Component {
         return (
             <div className='overlay'>
                 <section className='form-container'>
-                <SignUpForm />
+                <div className='control-buttons'>
+                    <button className='button-on'>Sign Up</button>
+                    <button className='button-off'>Log In</button>
+                </div>
+                        <SignUpForm />
                 </section>
             </div>
         )
