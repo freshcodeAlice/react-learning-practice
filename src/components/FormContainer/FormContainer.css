@@ -15,11 +15,8 @@ body {
     z-index: 1;
 }
 
-/**/
-
 .form-container {
     width: 350px;
-    height: 350px;
     margin: 10% auto;
     z-index: 2;
     border-radius: 5px;
@@ -32,12 +29,14 @@ body {
     align-items: stretch;
     padding: 2em;
     font-family: 'Titillium Web', sans-serif;
+
+    --margin-size: 15px 0;
 }
 
 .form-container .header {
     font-weight: 400;
     text-align: center;
-    margin: 10px 0;
+    margin: var(--margin-size);
 }
 
 .input-container {
@@ -48,15 +47,18 @@ body {
 
 .form-container .form-input {
     border: none;
-    height: 20px;
+    height: 25px;
     background-color: transparent;
-    border: 1px solid white
+    border: 1px solid white;
+    margin: var(--margin-size);
+    color: inherit;
 }
 
 .control-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: var(--margin-size);
 }
 
 .control-buttons button {
@@ -83,9 +85,10 @@ body {
 }
 
 .submit-button {
-    height: 50px;
+    height: 45px;
     border: none;
     background-color: #1ab188;
     color: inherit;
     font-size: 1.8em;
+    margin: var(--margin-size);
 }
