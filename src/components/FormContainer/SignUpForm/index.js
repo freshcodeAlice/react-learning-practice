@@ -18,6 +18,10 @@ class SignUpForm extends React.Component {
         })
     }
 
+    submit = () => {
+        this.props.sendData(this.state);
+    }
+
     render() {
         const {firstName, lastName, email, password} = this.state;
         return (
@@ -29,7 +33,7 @@ class SignUpForm extends React.Component {
                 </div>
                 <input className="form-input" type="email" placeholder="Email Address" name="email" onChange={this.inputHandler} value={email}/>
                 <input className="form-input" type="password" placeholder="Set a Password" name="password" onChange={this.inputHandler} value={password}/>
-                <button className="submit-button"> Get started</button>
+                <button className="submit-button" onClick={this.submit}> Get started</button>
             </>
         )
     }

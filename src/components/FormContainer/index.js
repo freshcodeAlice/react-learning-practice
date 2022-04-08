@@ -24,6 +24,10 @@ class FormContainer extends React.Component {
     }
     }
 
+    getDataFromForm = (data) => {
+        console.log(data);
+    }
+
     shouldComponentUpdate (nextProps, nextState) {
         if(this.state.view === nextState.view) {
             return false
@@ -33,7 +37,7 @@ class FormContainer extends React.Component {
 
     render() {
         const {view} = this.state;
-        const renderForm = view ? <SignUpForm /> : <LogInForm />;
+        const renderForm = view ? <SignUpForm sendData={this.getDataFromForm}/> : <LogInForm  sendData={this.getDataFromForm}/>;
         return (
             <div className='overlay'>
                 <section className='form-container'>
