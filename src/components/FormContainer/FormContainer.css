@@ -1,0 +1,23 @@
+body {
+    background-color: #b9f;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.6);
+    z-index: 1;
+}
+
+.form-container {
+    width: 350px;
+    height: 350px;
+    margin: 10% auto;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.51);
+    background-color: rgba(19,35,47,0.9);
+}
