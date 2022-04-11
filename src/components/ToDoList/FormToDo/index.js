@@ -1,21 +1,30 @@
 import React from "react";
 // import './style.css';
 import styles from './FormToDo.module.css';
+import cx from "classnames";
 
 class FormToDo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todo: ''
+            todo: '',
+            isValid: true
         }
     }
 
 
     changeInput = (event) => {
         const {name, value} = event.target;
-    this.setState({
-        [name]: value
-    })
+
+        if (value.includes(' ')) {
+            this.setState({
+                isValid: false
+            })
+        }
+
+        this.setState({
+            [name]: value
+        });
     }
 
     submitHandler = (event) => {
@@ -28,9 +37,14 @@ class FormToDo extends React.Component {
     }
 
     render() {
+
+        const inputClassName = cx(styles.inputNormal, {
+            [styles.invalidInput]: !this.state.isValid
+        });
+
         return(
             <form onSubmit={this.submitHandler} className={styles.container}>
-                <input type="text" name="todo" value={this.state.todo} onChange={this.changeInput}/>
+                <input type="text" name="todo" value={this.state.todo} onChange={this.changeInput} className={inputClassName}/>
                 <button type="submit">Add ToDo</button>
             </form>
         )
@@ -38,3 +52,19 @@ class FormToDo extends React.Component {
 }
 
 export default FormToDo;
+
+
+// function cx(objectStyles) {
+// return Object.entries(objectStyles)
+// .filter(([className, condition]) => condition)
+// .map(([className, condition]) => className)
+// .join(' ')
+// }
+// [[key, value], [key, value], [key, value]] => [key1, key2, key3] => "key1 key2 key3"
+
+/*
+{
+    имяКласса: Условие, при котором этот класс нам нужен
+}
+
+*/
