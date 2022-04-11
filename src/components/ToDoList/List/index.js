@@ -1,5 +1,5 @@
-import './style.css';
-
+// import './style.css';
+import style from './List.module.css';
 
 function List (props) {
 
@@ -10,7 +10,7 @@ function List (props) {
 
 
     return (
-        <ul>
+        <ul className={style.container}>
             {liArray}
         </ul>
     );
