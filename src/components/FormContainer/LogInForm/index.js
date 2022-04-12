@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../FormContainer.module.scss';
 
 class LogInForm extends React.Component {
     constructor(props) {
@@ -25,10 +26,10 @@ class LogInForm extends React.Component {
     render() {
         return (
             <>
-                <h2 className="header"> Welcome Back!</h2>
-                <input className="form-input" type="email" placeholder="Email Address" name="email" value={this.state.email} onChange={this.inputHandler}/>
-                <input className="form-input" type="password" placeholder="Set a Password" name="password" value={this.state.password} onChange={this.inputHandler}/>
-                <button className="submit-button" onClick={this.submit}> Log In</button>
+                <h2 className={styles.header}> Welcome Back!</h2>
+                <input className={styles['form-input']} type="email" placeholder="Email Address" name="email" value={this.state.email} onChange={this.inputHandler}/>
+                <input className={styles['form-input']} type="password" placeholder="Set a Password" name="password" value={this.state.password} onChange={this.inputHandler}/>
+                <button className={styles['submit-button']} onClick={this.submit}> Log In</button>
             </>
         )
     }
