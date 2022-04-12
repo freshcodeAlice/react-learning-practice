@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
 
+$margin-size: 15px 0;
+$main-color: rgba(19, 35, 47, 0.9);
+$second-color: white;
+$third-color: #1ab188;
+$third-color-hover: #229e7d;
+$button-off-color: rgba(160, 179, 176, 0.25);
+
+%flex-row-space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+%button-hover {
+    cursor: pointer;
+    background-color: $third-color-hover;
+}
 
 body {
     background-color: #c1bdba;
@@ -21,8 +38,8 @@ body {
     z-index: 2;
     border-radius: 5px;
     box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.51);
-    background-color: rgba(19, 35, 47, 0.9);
-    color: white;
+    background-color: $main-color;
+    color: $second-color;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,65 +47,65 @@ body {
     padding: 2em;
     font-family: 'Titillium Web', sans-serif;
 
-    --margin-size: 15px 0;
-}
+    .header {
+        font-weight: 400;
+        text-align: center;
+        margin: $margin-size;
+    }
 
-.form-container .header {
-    font-weight: 400;
-    text-align: center;
-    margin: var(--margin-size);
-}
+    .input-container {
+        @extend %flex-row-space-between;
+    }
 
-.input-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+    .form-input {
+        border: none;
+        height: 25px;
+        background-color: transparent;
+        border: 1px solid $second-color;
+        margin: $margin-size;
+        color: inherit;
+    }
 
-.form-container .form-input {
-    border: none;
-    height: 25px;
-    background-color: transparent;
-    border: 1px solid white;
-    margin: var(--margin-size);
-    color: inherit;
-}
+    
+    .control-buttons {
+        @extend %flex-row-space-between;
+        margin: $margin-size;
+        
+        .button-normal {
+            flex-grow: 1;
+            height: 40px;
+            border: none;
+            color: inherit;
+            font-size: 1em;
+            font-weight: lighter;
+            transition: background-color 300ms ease-in-out;
+        }
 
-.control-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: var(--margin-size);
-}
+        .button-on {
+        background-color: $third-color;
+        &:hover  {
+           @extend %button-hover;
+            }
+        }
 
-.control-buttons button {
-    flex-grow: 1;
-    height: 40px;
-    border: none;
-    color: inherit;
-    font-size: 1em;
-    font-weight: lighter;
-    transition: background-color 300ms ease-in-out;
-}
+        .button-off {
+        background-color: $button-off-color;
+        &:hover  {
+           @extend %button-hover;
+            }
+        }
+    }
 
-.button-on {
-    background-color: #1ab188;
-}
-
-.button-on:hover, .button-off:hover, .submit-button:hover {
-    cursor: pointer;
-    background-color: #229e7d;
-}
-
-.button-off {
-    background-color: rgba(160, 179, 176, 0.25)
-}
-
-.submit-button {
-    height: 45px;
-    border: none;
-    background-color: #1ab188;
-    color: inherit;
-    font-size: 1.8em;
-    margin: var(--margin-size);
+    
+    .submit-button {
+        height: 45px;
+        border: none;
+        background-color: $third-color;
+        color: inherit;
+        font-size: 1.8em;
+        margin: $margin-size;
+        &:hover  {
+            @extend %button-hover;
+            }
+    }   
 }

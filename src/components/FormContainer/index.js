@@ -46,15 +46,15 @@ class FormContainer extends React.Component {
                 <section className={cx(styles['form-container'], 'animate__animated', 'animate__fadeIn')}>
                 <div className={styles['control-buttons']}>
                     <button className={
-                        cx({
+                        cx(styles['button-normal'], {
                             [styles['button-on']]: view, 
                             [styles['button-off']]: !view
                             })} onClick={this.toggleView} name="signup">Sign Up</button>
                     <button className={
-                        cx({
+                        cx(styles['button-normal'], {
                             [styles['button-on']]: !view, 
-                            [styles['button-off']]: view}
-                            )} onClick={this.toggleView} name="login">Log In</button>
+                            [styles['button-off']]: view
+                            })} onClick={this.toggleView} name="login">Log In</button>
                 </div>
                     {renderForm}
                 </section>
