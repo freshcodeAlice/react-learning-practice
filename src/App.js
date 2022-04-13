@@ -1,32 +1,24 @@
 import './App.css';
 import React from 'react';
-import Container from './components/Grid/Container';
-import Row from './components/Grid/Row';
-import Column from './components/Grid/Column';
-
+import FlexContainer from './components/FlexContainer';
 
 function App(props) {
 
-
+// justify-content
+// flex-direction
+// align-items
   return (
-  <Container>
-    <Row>
-      <Column colNum={6}>
-        <div>Content1</div>
-      </Column>
-      <Column colNum={6}>
-        <div>Content2</div>
-      </Column>
-    </Row>
-    <Row>
-      <Column colNum={6}>
-        <div>Content3</div>
-      </Column>
-      <Column colNum={6}>
-        <div>Content4</div>
-      </Column>
-    </Row>
-    </Container>
+    <FlexContainer flexDirection='column' justifyContent='center' alignItems='center'>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>2</div>
+      <div>3</div>
+      <div>2</div>
+      <div>3</div>
+      <div>2</div>
+      <div>3</div>
+    </FlexContainer>
       );
 }
 
