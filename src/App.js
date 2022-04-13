@@ -1,31 +1,32 @@
 import './App.css';
 import React from 'react';
+import Container from './components/Grid/Container';
+import Row from './components/Grid/Row';
+import Column from './components/Grid/Column';
 
-const List = (props) => {
-  const {children} = props;
-  return (
-    <article>
-      <ul title="test">
-        {children}
-      </ul>
-    </article>
-  )
-}
 
 function App(props) {
 
-  const number = [1, 2, 3, 4, 5, 6];
-  const renderElement = () => {
-    return number.map((currentNumber, index) => {
-      const liJSX = <li key={currentNumber}>{currentNumber}</li>;
-      return liJSX;
-    })
-  }
 
   return (
-   <List>
-     {renderElement()}
-   </List>
+  <Container>
+    <Row>
+      <Column colNum={6}>
+        <div>Content1</div>
+      </Column>
+      <Column colNum={6}>
+        <div>Content2</div>
+      </Column>
+    </Row>
+    <Row>
+      <Column colNum={6}>
+        <div>Content3</div>
+      </Column>
+      <Column colNum={6}>
+        <div>Content4</div>
+      </Column>
+    </Row>
+    </Container>
       );
 }
 
