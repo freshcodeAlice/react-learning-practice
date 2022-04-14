@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserCard from './UserCard';
+import { getUsers } from '../../api';
 
 class UsersLoader extends Component {
   constructor (props) {
@@ -19,10 +20,7 @@ class UsersLoader extends Component {
   load = () => {
     const { page } = this.state;
 
-    fetch(
-      `https://randomuser.me/api/?page=${page}&results=10&seed=JS-DFE2021-1`
-    )
-      .then(res => res.json())
+    getUsers({ page })
       .then(data => {
         this.setState({
           users: data.results,
@@ -57,13 +55,6 @@ class UsersLoader extends Component {
   render () {
     console.log('render');
     const { isFetching, isError, users } = this.state;
-    if (isFetching) {
-      return <div>Loading...</div>;
-    }
-
-    if (isError) {
-      return <div>Some ERROR happening</div>;
-    }
 
     const userList = users.map(user => (
       <UserCard user={user} key={user.login.uuid} />
@@ -71,6 +62,8 @@ class UsersLoader extends Component {
 
     return (
       <div>
+        {isFetching && <div>Loading...</div>}
+        {isError && <div>Some ERROR happening</div>}
         <h1>Users List</h1>
         <button onClick={this.prev}>Previous page</button>
         <button onClick={this.next}>NextPage</button>
