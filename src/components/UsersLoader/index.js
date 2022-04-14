@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserCard from './UserCard';
 
 class UsersLoader extends Component {
   constructor (props) {
@@ -7,11 +8,20 @@ class UsersLoader extends Component {
       users: [],
       isFetching: true,
       isError: null,
+      page: 1,
     };
   }
 
   componentDidMount () {
-    fetch('https://randomuser.me/api/')
+    this.load();
+  }
+
+  load = () => {
+    const { page } = this.state;
+
+    fetch(
+      `https://randomuser.me/api/?page=${page}&results=10&seed=JS-DFE2021-1`
+    )
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -28,9 +38,24 @@ class UsersLoader extends Component {
           isFetching: false,
         });
       });
+  };
+
+  prev = () => {
+    this.setState(({ page }) => ({ page: page - 1 }));
+  };
+  next = () => {
+    this.setState(({ page }) => ({ page: page + 1 }));
+  };
+
+  componentDidUpdate (prevProps, prevState) {
+    const { page } = this.state;
+    if (prevState.page !== page) {
+      this.load();
+    }
   }
 
   render () {
+    console.log('render');
     const { isFetching, isError, users } = this.state;
     if (isFetching) {
       return <div>Loading...</div>;
@@ -40,10 +65,16 @@ class UsersLoader extends Component {
       return <div>Some ERROR happening</div>;
     }
 
+    const userList = users.map(user => (
+      <UserCard user={user} key={user.login.uuid} />
+    ));
+
     return (
       <div>
         <h1>Users List</h1>
-        <ul>{JSON.stringify(users, null, 4)}</ul>
+        <button onClick={this.prev}>Previous page</button>
+        <button onClick={this.next}>NextPage</button>
+        <ul>{userList}</ul>
       </div>
     );
   }
