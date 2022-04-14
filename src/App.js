@@ -1,9 +1,9 @@
 import './App.css';
 import React from 'react';
-import Layout from './components/Layout';
+import UsersLoader from './components/UsersLoader';
 
 function App (props) {
-  return <Layout />;
+  return <UsersLoader />;
 }
 
 export default App;
