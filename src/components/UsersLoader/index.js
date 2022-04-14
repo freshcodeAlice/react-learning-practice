@@ -74,3 +74,11 @@ class UsersLoader extends Component {
 }
 
 export default UsersLoader;
+
+/*
+
+Task 1. UserList - компонента, которая принимает массив и рендерит UserCard
+Task 2. Сделать красивые UserCard
+Task 3. Spinner во время Loading
+
+*/
