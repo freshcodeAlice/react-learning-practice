@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import UserCard from './UserCard';
+import UserList from './UserList';
 import { getUsers } from '../../api';
+import styles from '../Loader.module.css';
 
 class UsersLoader extends Component {
   constructor (props) {
@@ -46,28 +48,20 @@ class UsersLoader extends Component {
   };
 
   componentDidUpdate (prevProps, prevState) {
-    const { page } = this.state;
+    const { page, filterInput } = this.state;
     if (prevState.page !== page) {
       this.load();
     }
   }
 
   render () {
-    console.log('render');
     const { isFetching, isError, users } = this.state;
-
-    const userList = users.map(user => (
-      <UserCard user={user} key={user.login.uuid} />
-    ));
 
     return (
       <div>
-        {isFetching && <div>Loading...</div>}
         {isError && <div>Some ERROR happening</div>}
-        <h1>Users List</h1>
-        <button onClick={this.prev}>Previous page</button>
-        <button onClick={this.next}>NextPage</button>
-        <ul>{userList}</ul>
+        {isFetching && <div className={styles.loader}>Loading...</div>}
+        <UserList users={users} prev={this.prev} next={this.next} />
       </div>
     );
   }
