@@ -4,7 +4,7 @@ import config from '../config';
 export const getUsers = options => {
   const defaultOptions = {
     page: 1,
-    result: 10,
+    results: 10,
     format: 'json',
     seed: config.API_KEY,
   };
