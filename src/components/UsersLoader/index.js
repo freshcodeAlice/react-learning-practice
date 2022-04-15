@@ -77,8 +77,17 @@ export default UsersLoader;
 
 /*
 
-Task 1. UserList - компонента, которая принимает массив и рендерит UserCard
-Task 2. Сделать красивые UserCard
+Task 1. UserList - компонента, которая 
+принимает массив и рендерить UserCard, передавая в них готовую разметку 
+(Например:
+  <UserCard>
+      <img />
+      <h3>{user.name} </h3>
+      <p>{user.email}</p>
+      <p>{your choise} </p>
+  </UserCard>
+  )
+Task 2. UserCard - просто контейнер для карточки юзера
 Task 3. Spinner во время Loading
 
 */
