@@ -1,58 +1,46 @@
 import './App.css';
 import React, { Component } from 'react';
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 
 function App (props) {
-  return <WindowSizes />;
+  return (
+    <BrowserRouter>
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+        <li>
+          <Link to='/contacts'>Contacts</Link>
+        </li>
+      </ul>
+
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contacts' element={<Contacts />} />
+        <Route path='*' element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
 
-/*
-Компонент WindowSizes
+const Home = props => {
+  return <div>Home</div>;
+};
 
-<div>
-    Current viewport width: {width}px
-    Current viewport height: {height}px
-</div>
+const About = () => {
+  return <div>About</div>;
+};
 
-window.innerWidth
+const Contacts = () => {
+  return <div>Contacts</div>;
+};
 
-
-
-window.addEventListener('resize', ()=>{})
-*/
-
-class WindowSizes extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-  }
-
-  componentDidMount () {
-    window.addEventListener('resize', this.resizeHadler);
-  }
-
-  resizeHadler = () => {
-    this.setState({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  };
-
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.resizeHadler);
-  }
-
-  render () {
-    const { width, height } = this.state;
-    return (
-      <div>
-        <p>Current viewport width: {width}px </p>
-        <p>Current viewport height: {height}px</p>
-      </div>
-    );
-  }
-}
+const PageNotFound = () => {
+  return <div>404!!! Page not Found!!!</div>;
+};
