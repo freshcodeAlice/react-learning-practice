@@ -1,5 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
+import CounterPage from './pages/CounterPage';
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 
 function App (props) {
@@ -15,12 +16,16 @@ function App (props) {
         <li>
           <Link to='/contacts'>Contacts</Link>
         </li>
+        <li>
+          <Link to='/counter'>Counter</Link>
+        </li>
       </ul>
 
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contacts' element={<Contacts />} />
+        <Route path='/counter' element={<CounterPage />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
