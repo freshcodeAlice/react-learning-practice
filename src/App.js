@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import CounterPage from './pages/CounterPage';
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+import LoaderPage from './pages/LoaderPage';
 
 function App (props) {
   return (
@@ -19,6 +20,9 @@ function App (props) {
         <li>
           <Link to='/counter'>Counter</Link>
         </li>
+        <li>
+          <Link to='/loader'>Loader</Link>
+        </li>
       </ul>
 
       <Routes>
@@ -26,6 +30,7 @@ function App (props) {
         <Route path='/about' element={<About />} />
         <Route path='/contacts' element={<Contacts />} />
         <Route path='/counter' element={<CounterPage />} />
+        <Route path='/loader' element={<LoaderPage />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
