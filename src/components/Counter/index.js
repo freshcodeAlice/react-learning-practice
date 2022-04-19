@@ -71,35 +71,9 @@ class Counter extends PureComponent {
 
 export default Counter;
 
-//PureComponent
-// const prevState = {
-//     value: 1
-// }
-// const nextState = {
-//     value: 2
-// }
+/*
 
-// prevState.value === nextState.value // re-render
+Реализовать каунтер
+Добавить shouldComponentUpdate для предотвращения перерендеров
 
-// const prevState = {
-//     engine: {
-//         volume: {
-//             scale: 'l',
-//             value: '2'
-//         }
-//     }
-// }
-
-// const nextState = {
-//     engine: {
-//         volume: {
-//             scale: 'l',
-//             value: '2'
-//         }
-//     }
-// }
-
-//state comparation
-// prevState === nextState
-// {} === {} // false
-// this.setState({value: 2})
+*/
