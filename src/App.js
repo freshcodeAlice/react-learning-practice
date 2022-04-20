@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import Tree from './components/Tree';
 import { UserContext } from './contexts';
+import Header from './components/Header';
 
 /*
 
@@ -25,11 +26,20 @@ class App extends React.Component {
     };
   }
 
+  logOut = () => {
+    this.setState({
+      user: {},
+    });
+  };
+
   render () {
     return (
-      <UserContext.Provider value={this.state.user}>
-        <Tree user={this.state.user} />
-      </UserContext.Provider>
+      <>
+        <UserContext.Provider value={[this.state.user, this.logOut]}>
+          <Header />
+          <Tree />
+        </UserContext.Provider>
+      </>
     );
   }
 }
