@@ -1,45 +1,49 @@
 import React, { Component } from 'react';
-import { UserContext } from '../../contexts';
+import { UserContext, ThemeContext } from '../../contexts';
+import style from './Header.module.css';
+import cx from 'classnames';
+import CONSTANTS from '../../constants';
+import Switch from '@mui/material/Switch';
+const { THEMES } = CONSTANTS;
 
 class Header extends Component {
   render () {
-    const [user, userLogOut] = this.context;
     return (
-      <div
-        style={{
-          width: '100%',
-          boxSizing: 'border-box',
-          border: '2px solid orange',
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-          padding: '10px',
+      <ThemeContext.Consumer>
+        {([theme, setTheme]) => {
+          const classNames = cx(style.container, {
+            [style.ligthTheme]: theme === THEMES.LIGHT,
+            [style.darkTheme]: theme === THEMES.DARK,
+          });
+          return (
+            <UserContext.Consumer>
+              {([user, userLogOut]) => {
+                const nextTheme =
+                  theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
+                return (
+                  <div className={classNames}>
+                    <Switch
+                      checked={theme === THEMES.DARK}
+                      onChange={() => {
+                        setTheme(nextTheme);
+                      }}
+                      inputProps={{ 'aria-label': 'controlled' }}
+                    />
+                    <img
+                      src={user.imageSrc}
+                      style={{ width: '50px', borderRadius: '50%' }}
+                    />
+                    {user.firstName}
+                    <button onClick={userLogOut}>LogOut</button>
+                  </div>
+                );
+              }}
+            </UserContext.Consumer>
+          );
         }}
-      >
-        <img
-          src={user.imageSrc}
-          style={{ width: '50px', borderRadius: '50%' }}
-        />
-        {user.firstName}
-        <button onClick={userLogOut}>LogOut</button>
-      </div>
+      </ThemeContext.Consumer>
     );
   }
 }
 
-Header.contextType = UserContext;
-
 export default Header;
-
-/*
-
-
-    <UserContext.Consumer>
-        {(user)=>{
-            return <div style={{ width: '100%', border: '2px solid orange' }}>
-                <img src={user.imageSrc} style={{width: '50px', borderRadius: '50%'}} />
-            </div>
-        }}
-    </UserContext.Consumer>
-
-    */

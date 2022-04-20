@@ -1,9 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
 import Tree from './components/Tree';
-import { UserContext } from './contexts';
+import { UserContext, ThemeContext } from './contexts';
 import Header from './components/Header';
-
+import CONSTANTS from './constants';
+const { THEMES } = CONSTANTS;
 /*
 
 1. Создаем контекст
@@ -23,6 +24,7 @@ class App extends React.Component {
         imageSrc:
           'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png',
       },
+      theme: THEMES.DARK,
     };
   }
 
@@ -32,13 +34,20 @@ class App extends React.Component {
     });
   };
 
+  setTheme = theme => {
+    this.setState({ theme });
+  };
+
   render () {
+    const { theme, user } = this.state;
     return (
       <>
-        <UserContext.Provider value={[this.state.user, this.logOut]}>
-          <Header />
-          <Tree />
-        </UserContext.Provider>
+        <ThemeContext.Provider value={[theme, this.setTheme]}>
+          <UserContext.Provider value={[user, this.logOut]}>
+            <Header />
+            <Tree />
+          </UserContext.Provider>
+        </ThemeContext.Provider>
       </>
     );
   }

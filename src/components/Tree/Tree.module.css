@@ -1,0 +1,15 @@
+.container {
+  border: 3px solid black;
+  padding: 25px;
+}
+
+.darkTheme {
+  background-color: rgba(0, 0, 0, 0.659);
+  color: white;
+  border: 2px solid white;
+}
+
+.lightTheme {
+  background-color: white;
+  color: black;
+}
