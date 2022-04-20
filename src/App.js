@@ -1,56 +1,37 @@
 import './App.css';
 import React, { Component } from 'react';
-import CounterPage from './pages/CounterPage';
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
-import LoaderPage from './pages/LoaderPage';
+import Tree from './components/Tree';
+import { UserContext } from './contexts';
 
-function App (props) {
-  return (
-    <BrowserRouter>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-        <li>
-          <Link to='/contacts'>Contacts</Link>
-        </li>
-        <li>
-          <Link to='/counter'>Counter</Link>
-        </li>
-        <li>
-          <Link to='/loader'>Loader</Link>
-        </li>
-      </ul>
+/*
 
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contacts' element={<Contacts />} />
-        <Route path='/counter' element={<CounterPage />} />
-        <Route path='/loader' element={<LoaderPage />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
+1. Создаем контекст
+2. Предоставляем данные (создаем Provider)
+3. Получаем данные, подключившись к контексту
+
+*/
+
+class App extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      user: {
+        id: 1,
+        firstName: 'John',
+        lastName: 'Doe',
+        imageSrc:
+          'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png',
+      },
+    };
+  }
+
+  render () {
+    return (
+      <UserContext.Provider value={this.state.user}>
+        <Tree user={this.state.user} />
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default App;
-
-const Home = props => {
-  return <div>Home</div>;
-};
-
-const About = () => {
-  return <div>About</div>;
-};
-
-const Contacts = () => {
-  return <div>Contacts</div>;
-};
-
-const PageNotFound = () => {
-  return <div>404!!! Page not Found!!!</div>;
-};
