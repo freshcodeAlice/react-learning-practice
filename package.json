@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "classnames": "^2.3.1",
+    "formik": "^2.2.9",
     "hash": "^0.2.1",
     "query-string": "^7.1.1",
     "react": "^18.0.0",
@@ -18,7 +19,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "sass": "^1.50.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
