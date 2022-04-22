@@ -7,8 +7,6 @@ export const SIGN_UP_SCHEMA = Yup.object({
     .matches(/^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/, 'Type valid email')
     .required(),
   password: Yup.string()
-    .matches(
-      /^^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$$/
-    )
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/)
     .required(),
 });
