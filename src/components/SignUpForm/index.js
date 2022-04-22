@@ -25,12 +25,14 @@ function SignUpForm (props) {
         console.log(formikProps);
         return (
           <Form>
-            <Field type='text' name='email' />
-            <ErrorMessage
-              name='email'
-              component='p'
-              className='error-message-p'
-            />
+            <label>
+              <Field type='text' name='email' />
+              <ErrorMessage
+                name='email'
+                component='p'
+                className='error-message-p'
+              />
+            </label>
             <Field type='text' name='password' />
             <ErrorMessage name='password' component='p' />
             <button type='submit'>Submit!</button>
