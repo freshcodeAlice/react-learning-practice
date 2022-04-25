@@ -1,36 +1,17 @@
 import React, { useState } from 'react';
+import Tracker from '../Tracker';
 
 const Home = () => {
-  const [coordinates, setCoordinates] = useState({
-    x: 0,
-    y: 0,
-  });
+  const [isVisible, setVisibility] = useState(true);
 
-  const [counter, setCounter] = useState(0);
-  // setState в хуках !== this.setState в классах!
-  // Для одной сущности - один state
-
-  const handleMouseMove = ({ clientX, clientY }) => {
-    setCoordinates({
-      x: clientX,
-      y: clientY,
-    });
-  };
-
-  const clickHandler = () => {
-    setCounter(counter + 1);
+  const handler = () => {
+    setVisibility(!isVisible);
   };
 
   return (
-    <div
-      style={{ height: '100vh', border: '5px solid red' }}
-      onMouseMove={handleMouseMove}
-      onClick={clickHandler}
-    >
-      <h1>Mouse Tracker</h1>
-      <h3>x: {coordinates.x} </h3>
-      <h3>y: {coordinates.y} </h3>
-      <h3>Conter: {counter} </h3>
+    <div>
+      <button onClick={handler}>Change visibility</button>
+      {isVisible && <Tracker />}
     </div>
   );
 };
