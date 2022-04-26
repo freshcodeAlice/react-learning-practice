@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Clicker from '../Clicker';
+import StopWatch from '../StopWatch';
 
 const Home = () => {
   const [isVisible, setVisibility] = useState(true);
@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <button onClick={handler}>Change visibility</button>
-      {isVisible && <Clicker />}
+      {isVisible && <StopWatch />}
     </div>
   );
 };
