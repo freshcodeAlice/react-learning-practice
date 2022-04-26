@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../contexts';
 import StopWatch from '../StopWatch';
 
 const Home = () => {
-  const [isVisible, setVisibility] = useState(true);
-
-  const handler = () => {
-    setVisibility(!isVisible);
-  };
+  const [userValue, setUserValue] = useContext(UserContext);
 
   return (
     <div>
-      <button onClick={handler}>Change visibility</button>
-      {isVisible && <StopWatch />}
+      <h1>{userValue.name}</h1>;
     </div>
   );
 };
