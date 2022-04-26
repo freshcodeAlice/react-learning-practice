@@ -1,18 +1,19 @@
 import './App.css';
 import React, { useState } from 'react';
-import { UserContext } from './contexts';
+import { ThemeContext } from './contexts';
 import Home from './components/Home';
+import Tree from './components/Tree';
+import CONSTANTS from './constants';
+
+const { THEMES } = CONSTANTS;
 
 const App = () => {
-  const [user, setUser] = useState({
-    id: 1,
-    name: 'John Snow',
-  });
+  const [theme, setTheme] = useState(THEMES.DARK);
   return (
     <div>
-      <UserContext.Provider value={[user, setUser]}>
-        <Home />
-      </UserContext.Provider>
+      <ThemeContext.Provider value={[theme, setTheme]}>
+        <Tree />
+      </ThemeContext.Provider>
     </div>
   );
 };
