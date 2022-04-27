@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div>
       <ThemeContext.Provider value={[theme, setTheme]}>
-        <Tree />
+        <Home />
       </ThemeContext.Provider>
     </div>
   );
