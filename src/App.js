@@ -8,7 +8,7 @@ import CONSTANTS from './constants';
 const { THEMES } = CONSTANTS;
 
 const App = () => {
-  const [theme, setTheme] = useState(THEMES.DARK);
+  const [theme, setTheme] = useState(THEMES.LIGHT);
   return (
     <div>
       <ThemeContext.Provider value={[theme, setTheme]}>
