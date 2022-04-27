@@ -4,6 +4,7 @@ import { ThemeContext } from './contexts';
 import Home from './components/Home';
 import Tree from './components/Tree';
 import CONSTANTS from './constants';
+import Loader from './components/Loader';
 
 const { THEMES } = CONSTANTS;
 
@@ -12,7 +13,7 @@ const App = () => {
   return (
     <div>
       <ThemeContext.Provider value={[theme, setTheme]}>
-        <Home />
+        <Loader />
       </ThemeContext.Provider>
     </div>
   );
