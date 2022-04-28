@@ -8,6 +8,7 @@ import Clicker from './components/Clicker';
 import SignUpPage from './components/SignUp';
 import ChatPage from './pages/ChatPage';
 import { reducer } from './reducer';
+import NavBar from './components/NavBar';
 
 const { THEMES } = CONSTANTS;
 
@@ -34,6 +35,8 @@ const App = () => {
     <AppContext.Provider value={{ state, openMenu, closeMenu }}>
       <ThemeContext.Provider value={[theme, setTheme]}>
         <BrowserRouter>
+          <NavBar />
+          <button onClick={openMenu}>Open menu</button>
           <nav>
             <ul>
               <li>
