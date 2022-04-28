@@ -8,6 +8,7 @@ import CONSTANTS from './constants';
 import Loader from './components/Loader';
 import Clicker from './components/Clicker';
 import SignUpPage from './components/SignUp';
+import ChatPage from './pages/ChatPage';
 
 const { THEMES } = CONSTANTS;
 
@@ -30,6 +31,9 @@ const App = () => {
             <li>
               <Link to='/signup'>SignUpPage</Link>
             </li>
+            <li>
+              <Link to='/chat'>ChatPage</Link>
+            </li>
           </ul>
         </nav>
         <Routes>
@@ -37,6 +41,7 @@ const App = () => {
           <Route path='/loader' element={<Loader />} />
           <Route path='/clicker' element={<Clicker />} />
           <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/chat' element={<ChatPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeContext.Provider>

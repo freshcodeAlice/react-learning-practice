@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "imageSrc": "http://"
+    },
+    {
+      "id": 2,
+      "name": "Jane",
+      "imageSrc": "http://"
+    },
+    {
+      "id": 3,
+      "name": "Sane",
+      "imageSrc": "http://"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "body": "Hello",
+      "authorID": 1
+    },
+    {
+      "id": 2,
+      "body": "Hello to you",
+      "authorID": 2
+    },
+    {
+      "id": 3,
+      "body": "...",
+      "authorID": 3
+    },
+    {
+      "id": 4,
+      "body": "Hello yourself",
+      "authorID": 1
+    },
+    {
+      "id": 5,
+      "body": "Nope",
+      "authorID": 2
+    }
+  ]
+}
