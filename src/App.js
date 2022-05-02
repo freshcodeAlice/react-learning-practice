@@ -9,6 +9,7 @@ import SignUpPage from './components/SignUp';
 import ChatPage from './pages/ChatPage';
 import { reducer } from './reducer';
 import NavBar from './components/NavBar';
+import Sandbox from './components/Sandbox/sandbox';
 
 const { THEMES } = CONSTANTS;
 
@@ -54,6 +55,7 @@ const App = () => {
             </ul>
           </nav>
           <Routes>
+            <Route path='/' element={<Sandbox />} />
             <Route path='/loader' element={<Loader />} />
             <Route path='/clicker' element={<Clicker />} />
             <Route path='/signup' element={<SignUpPage />} />
