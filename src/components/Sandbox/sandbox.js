@@ -1,24 +1,20 @@
-import React, { useState, useMemo, useTransition } from 'react';
+import React, { useState, useMemo, useDeferredValue } from 'react';
 import { data } from './data-PW8ulsk7K_uYcpbd0Qdsg';
 
 const Sandbox = () => {
   const [textData, setData] = useState(data);
   const [inputValue, setInputValue] = useState('');
-  const [isPending, startTransition] = useTransition(); // Отложенные вычисления состояния
-  const [filterValue, setFilterValue] = useState('');
+  const defferedValue = useDeferredValue(inputValue); // Отложенные вычисления состояния
 
   const inputHandler = ({ target: { value } }) => {
     setInputValue(value);
-    startTransition(() => {
-      setFilterValue(value);
-    });
   };
 
   const filteredValue = useMemo(() => {
     return textData.filter(item =>
-      item.text.toLowerCase().includes(filterValue)
+      item.text.toLowerCase().includes(defferedValue)
     );
-  }, [filterValue]);
+  }, [defferedValue]);
 
   const mappedData = filteredValue.map(obj => (
     <li key={obj.guid}>{obj.text}</li>
